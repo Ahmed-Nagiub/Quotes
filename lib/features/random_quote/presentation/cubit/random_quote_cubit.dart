@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -16,6 +17,7 @@ class RandomQuoteCubit extends Cubit<RandomQuoteState> {
       : super(RandomQuoteInitial());
   
   Future<void> getRandomQuote() async{
+    emit(RandomQuoteIsLoading());
     Either<Failure,Quote> response = await getRandomQuoteUseCase(NoParams());
     response.fold((failure) => RandomQuoteError(msg: _mapFailureToMsg(failure)),
             (quote) => RandomQuoteLoaded(quote:quote));

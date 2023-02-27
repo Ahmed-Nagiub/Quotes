@@ -36,7 +36,9 @@ class _QuoteScreenState extends State<QuoteScreen> {
             ),
           );
         }else if(state is RandomQuoteError){
-          return error_widget.ErrorWidget();
+          return error_widget.ErrorWidget(
+            onPress: ()=>_getRandomQuote(),
+          );
         }else if(state is RandomQuoteLoaded){
           return Column(
             children: [

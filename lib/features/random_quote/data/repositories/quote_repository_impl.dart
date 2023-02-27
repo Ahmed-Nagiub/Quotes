@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:quotes/core/error/exceptions.dart';
 import 'package:quotes/core/error/failures.dart';
@@ -28,11 +29,11 @@ class QuoteRepositoryImpl extends QuoteRepository {
     }
   }else{
     try{
-      final randomQuoteLocal = await randomQuoteLocalDataSource.getLastRandomQuote();
-      return Right(randomQuoteLocal);
-    }on CacheException{
-      return left(CacheFailure());
-    }
-    }
+     final randomQuoteLocal = await randomQuoteLocalDataSource.getLastRandomQuote();
+     return Right(randomQuoteLocal);
+   }on CacheException{
+     return left(CacheFailure());
+   }
+   }
   }
 }
