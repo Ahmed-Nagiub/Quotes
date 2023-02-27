@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quotes/core/utils/app_color.dart';
 
+import '../../domain/entities/quote.dart';
+
 class QuoteContent extends StatelessWidget {
-  const QuoteContent({Key? key}) : super(key: key);
+  final Quote quote;
+  const QuoteContent({Key? key, required this.quote}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class QuoteContent extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       child: Text(
-        'jkjlajsdklahjklsdjkalsjdlkasjd',
+        quote.content,
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.w500,
